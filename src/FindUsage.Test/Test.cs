@@ -7,28 +7,36 @@ namespace FindUsage.Test
 {
     public class Test
     {
-        public void TestFunction()
+        public void TestSetters()
         {
             FooProp.BarProp = "one";
             FooField.BarField = "two";
         }
 
-        public bool TestFunction2(Foo foo)
+        public bool TestParameter(Foo foo)
         {
             return true;
         }
 
-        public Foo GetFoo()
+        public Foo TestReturnValue()
         {
             return null;
         }
 
-        public void TestFunction3(IEnumerable<Foo> foos)
+        public void TestGenericArgument(IEnumerable<Foo> foos)
         {
         }
 
-        public void TestFunction4(Foo[] foos)
+        public void TestArray(Foo[] foos)
         {
+        }
+
+        public void TestObjectInitializer()
+        {
+            new Foo
+                {
+                    BarProp = "test"
+                };
         }
 
         public Foo FooProp { get; set; }

@@ -115,18 +115,18 @@ namespace FindUsage
                         {
                             foreach (var instruction in method.Body.Instructions)
                             {
-                                if (instruction.Operand is MethodDefinition)
+                                if (instruction.Operand is MethodReference)
                                 {
-                                    var methodDef = (MethodDefinition) instruction.Operand;
+                                    var methodDef = (MethodReference)instruction.Operand;
                                     if (targetProperties.Contains(methodDef.FullName))
                                     {
                                         Console.WriteLine(" - Call to {0} at {1}+{2}", methodDef.Name, method.FullName, instruction.Offset);
                                         ++_count;
                                     }
                                 }
-                                else if (instruction.Operand is FieldDefinition)
+                                else if (instruction.Operand is FieldReference)
                                 {
-                                    var fieldDef = (FieldDefinition) instruction.Operand;
+                                    var fieldDef = (FieldReference)instruction.Operand;
                                     if (targetFields.Contains(fieldDef.FullName))
                                     {
                                         Console.WriteLine(" - Field used at {0}+{1}", method.FullName, instruction.Offset);
