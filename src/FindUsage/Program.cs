@@ -42,11 +42,11 @@ namespace FindUsage
             Console.WriteLine("Matching target types [{0}]", String.Join(", ", targetTypes));
 
             Console.WriteLine();
-            Console.WriteLine("Scanning assemblies...");
-            Console.WriteLine();
 
             foreach (var assembly in assemblies)
             {
+                Console.WriteLine("Scanning assembly {0}...", assembly.MainModule.Name);
+
                 foreach (var type in assembly.MainModule.Types)
                 {
                     foreach (var property in type.Properties)
